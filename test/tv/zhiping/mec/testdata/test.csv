@@ -1,0 +1,2 @@
+caseNo,description,host,path,type,reference_id,start_time,udid
+No1,天猫魔盒实时获取feed接口校验,192.168.0.110:9080,/api/v1/get_feeds,nolive,112804,480000,3307

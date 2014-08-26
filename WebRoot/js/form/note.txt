@@ -1,0 +1,4 @@
+http://malsup.com/jquery/form/#json
+
+--中文文档
+http://www.aqee.net/docs/jquery.form.plugin/jquery.form.plugin.html#api

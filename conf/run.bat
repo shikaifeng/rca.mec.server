@@ -1,0 +1,74 @@
+set CURRENT_DIR=%cd%
+set MAIN_CLASSPATH=%CURRENT_DIR%\
+cd..
+set CURRENT_DIR=%cd%
+set LIB_HOME=%CURRENT_DIR%\lib
+
+set CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
+
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%
+
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\ant.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\c3p0-0.9.1.2.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-codec-1.6.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\c3p0-0.8.5.2.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\cglib-nodep-2.2.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\com.springsource.org.aopalliance-1.0.0.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-beanutils-1.7.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-collections.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-fileupload-1.2.1.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-io-2.1.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-lang-2.6.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\commons-logging-1.1.1.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\dbunit-2.4.9.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\ezmorph-1.0.6.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\fastjson-1.1.22.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\freemarker-2.3.19.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\gson-2.1.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\httpclient-4.1.2.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\httpcore-4.1.2.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\ibatis-2.3.4.726.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\JavaPNS_2.2.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\javax.servlet.jsp.jstl.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\jsf-api.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\jsf-impl.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\json-lib-2.2.2-jdk15.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\jstl-impl.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\junit-4.8.1.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\jxl.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\ld.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\log4j-1.2.16.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\mail.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\mysql-connector-java-5.1.10-bin.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.aop-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.asm-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.aspects-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.beans-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.context-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.context.support-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.core-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.expression-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.instrument-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.instrument.tomcat-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.jdbc-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.jms-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.orm-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.oxm-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.test-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.transaction-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.web-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\org.springframework.web.servlet-3.0.5.RELEASE.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\oscache-2.4.1.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\p6spy.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\pinyin4j-2.5.0.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\quartz-all-1.8.6.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\slf4j-api-1.5.10.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\slf4j-jdk14-1.5.10.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\sqlitejdbc-v056.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\standard.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\zxing-2.0.jar
+set CLASSPATH=%CLASSPATH%;%LIB_HOME%\servlet-api.jar
+
+set CLASSPATH=%CLASSPATH%;%MAIN_CLASSPATH%;.
+cd %MAIN_CLASSPATH%
+java -Dencoding=GBK -Dfile.encoding=GBK -Xms128M -Xmx256M com.alidao.xbh.thread.XbhThreadMain

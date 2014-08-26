@@ -1,0 +1,213 @@
+@charset "utf-8";
+/* CSS Document */
+.edit_com
+{
+    width:auto;
+    float:left;
+    margin-top:20px;
+    padding:0 20px;
+    min-height:300px;
+    height:auto !important;
+    height:300px;
+    overflow:visible;
+}
+.edit_com_box
+{
+    margin-top:0;
+    padding:0;	
+}
+.edit_com h3
+{
+    width:95%;
+    padding: 10px 0px 10px 20px;
+    border-top: 1px solid #E4E4E4;
+    border-bottom: 1px solid #E4E4E4;
+    color: #c00;
+    float: left;
+    font-size: 16px;
+    font-weight:bold;
+}
+
+/*内容少时编辑页面样式*/
+.edit_com ul,.edit_play ul
+{
+    width:90%;
+    float:left;
+    margin-left:2px;
+    padding:20px;
+}
+.edit_com ul li,.edit_play ul li
+{
+    width:100%;
+    min-height:25px;
+    height:auto !important;
+    height:25px;
+    overflow:visible;
+    float:left;
+    line-height:25px;
+    font-size:12px;
+    color:#333333;
+    padding:3px 0;
+}
+.r_edit_con
+{
+    display:inline;
+    width:70px;
+    height:20px;
+    float:left;
+    font-size:12px;
+    text-align:right;
+}
+.r_edit_con b
+{
+    color:#CC0000;
+    font-weight:100;
+}
+.r_edit_inp
+{
+    min-height:25px;
+    height:auto !important;
+    height:25px;
+    overflow:visible;
+    float:left;
+}
+.r_edit_inp  .input01,.r_edit_inp  select
+{
+    height:20px;
+    overflow:visible;
+    outline: medium none;
+    margin-right:5px;
+    font-size:12px;
+    color:#020202;
+    border:1px solid #7f9db9;
+}
+
+
+.r_edit_inp  lable
+{
+    height:20px;
+    line-height:20px;
+}
+.r_edit_inp  textarea
+{
+    border: 1px solid #7f9db9;
+    box-shadow: 2px 2px 2px #EEEEEE inset;
+}
+/*新增加的*/
+.r_edit_inp span
+{
+    float:left;
+}
+.r_edit_inp .r_edit_img
+{
+    width:auto;
+    height:100px;
+    margin-bottom:5px;
+}
+.r_edit_inp .r_img_btn
+{
+    height:30px;
+}
+.r_edit_inp .r_img_btn object 
+{
+    float:left;
+}
+.r_edit_inp .r_img_btn label
+{
+    float:left;
+    height:40px;
+    line-height:40px;
+}
+
+/*报错*/
+.edit_com ul li p
+{
+    color:#F00;
+    padding-left:80px;
+    height:16px;
+    line-height:16px;
+    margin-top:6px;
+}
+.r_edit_inp  input.error 
+{
+    border:#f00 1px solid;
+    box-shadow:2px 2px 2px #fcbbbb inset;
+}
+
+
+/*内容多时编辑页面样式*/
+.edit_com .edit_tab
+{
+    width:789px;
+    float:left;
+    padding:10px 0 0 20px;
+    position:relative;
+    min-height:200px;
+    height:auto !important;
+    height:200px;
+    overflow:visible;	
+}
+.edit_tab table.table_edit td
+{
+    padding:5px 2px;
+    position:relative;
+}
+.edit_tab table.table_edit td .input01,.edit_tab table.table_edit td select
+{
+    height:20px;
+    font-size:12px;
+    color:#020202;
+    border: 1px solid #7f9db9;
+    box-shadow: 2px 2px 2px #EEEEEE inset;
+    color:#666;
+}
+.edit_tab table.table_edit td select
+{
+    height:23px;
+}
+.edit_tab .error_inp
+{
+    height:20px;
+    border: 1px solid #FC3D2E;	
+}
+
+/*头像*/
+.user_photo
+{
+    position: absolute; 
+    top: 10px; 
+    right: 20px; 
+    width: 111px; 
+    height: 170px;
+}
+.user_photo .img_photo
+{
+    width:105px;
+    height:105px;
+    padding:3px;
+    background:#FFFFFF;
+    border:#999 1px solid;
+}
+.user_photo .btn_upl
+{
+    border:0;
+    width:116px;
+    height:28px;
+    margin-top:5px;
+    background:url(../images/btn_upload.png) no-repeat;
+    cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+@charset "utf8";
+html, body, img, a, form, ul, li, div, span, p {margin:0; padding:0; border:0 none; _overflow-x:hidden;}
+html, body, p, table, input, textarea, select {font:14px "宋体", "Microsoft YaHei", Tahoma, Arial, Helvetica, STHeiti;}
+html, body {background-color:#EFEFF4;}
+h1, h2, h3, h4, h5, h6 {margin:0; padding:0;}
+h2 {color:#000000; font-size:20px;}
+h3 {color:#000000; font-size:17px;}
+.container {margin:0; padding:0; position:relative;}
+.header {border-bottom:1px solid #DDDDDD; width:100%; position:fixed; left:0; top:0; height:50px; line-height:50px; background-color:#EFEFF4;}
+.header .name {margin:0 12px; color:#000000; font-size:22px; height:50px; line-height:50px;}
+.empty {height:50px;}
+.body {padding:12px;}
+.basic {overflow:hidden;}
+.basic .avatar {float:left;}
+.basic .info {float:left; margin-left:12px;}
+.basic .info h3 {margin-bottom:6px;}
+.basic .info label, .basic .info span {line-height:20px; display:inline-block;}
+.summary {margin-top:20px;}
+.summary h3 {margin-bottom:12px;}
+.program {margin-top:20px; margin-bottom:20px;}
+.program h3 {margin-bottom:12px;}
+.about {width:100%;}
+.about .logo {margin-top:70px; width:100%;}
+.about .logo img {margin:0 auto;}
+.about .content h2 {margin-top:12px; text-align:center; width:100%;}
+.about .content span {display:inline-block; position:relative; height:13px;}
+.about .content span.left, .about .content span.right {width:71px;}
+.about .content span img {position:absolute; left:0; top:8px;}
+.about .content .version {text-align:center; margin-top:16px; font-size:13px; color:#6F7B85;}
+.about .footer {position:fixed; left:0; bottom:16px; width:100%; text-align:center; font-size:11px; color:#808080;}

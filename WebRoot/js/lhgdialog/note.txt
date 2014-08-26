@@ -1,0 +1,14 @@
+demo：
+引入：
+<script language="javascript" src="${ctx}/js/lhgdialog/lhgdialog.js"></script>
+
+
+弹出页面:
+var url = "${ctx}/guest/input.do?meetId="+$("[name=meetId]").val();
+new $.dialog({title:'嘉宾添加' , id:'guestAdd', page:url,rang:true,width :600,height:650,onXclick:function(){
+	top.location.reload();
+}}).ShowDialog();
+
+
+关闭：
+frameElement.lhgDG.cancel();

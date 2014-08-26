@@ -1,0 +1,63 @@
+create database media default charset utf8;
+
+
+
+CREATE TABLE media.`epg_program` (
+  `id` varchar(32) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `orig_title` varchar(128) DEFAULT NULL,
+  `aka` varchar(255) DEFAULT NULL,
+  `aka_en` varchar(255) DEFAULT NULL,
+  `cover` varchar(128) DEFAULT NULL,
+  `type` varchar(32) NOT NULL DEFAULT 'Movie',
+  `website` varchar(255) DEFAULT NULL,
+  `year` char(16) DEFAULT NULL,
+  `languages` varchar(255) DEFAULT NULL,
+  `country` varchar(64) DEFAULT NULL,
+  `per_duration` int(11) unsigned NOT NULL DEFAULT '0',
+  `genres` varchar(255) DEFAULT NULL,
+  `seasons_count` int(4) unsigned NOT NULL DEFAULT '0',
+  `current_season` int(4) unsigned NOT NULL DEFAULT '0',
+  `episodes_count` int(8) unsigned NOT NULL DEFAULT '0',
+  `url` varchar(255) DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `images` text,
+  `summary` text,
+  `photos` text,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `match` tinyint(1) NOT NULL DEFAULT '0',
+  `mdm_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE media.`epg_episode` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` varchar(32) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `orig_title` varchar(128) DEFAULT NULL,
+  `aka` varchar(255) DEFAULT NULL,
+  `cover` varchar(128) DEFAULT NULL,
+  `type` varchar(32) NOT NULL DEFAULT 'Movie',
+  `website` varchar(255) DEFAULT NULL,
+  `year` char(16) DEFAULT NULL,
+  `languages` varchar(255) DEFAULT NULL,
+  `country` varchar(64) DEFAULT NULL,
+  `episodes_count` int(8) unsigned NOT NULL DEFAULT '0',
+  `current_episode` int(8) unsigned NOT NULL DEFAULT '0',
+  `duration` int(11) unsigned NOT NULL DEFAULT '0',
+  `tags` varchar(255) DEFAULT NULL,
+  `images` text,
+  `summary` text,
+  `photos` text,
+  `series` varchar(64) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `download_url` varchar(255) DEFAULT NULL,
+  `match` tinyint(1) NOT NULL DEFAULT '0',
+  `mdm_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

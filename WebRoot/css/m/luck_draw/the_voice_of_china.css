@@ -1,0 +1,279 @@
+@charset "UTF-8";
+/**
+ * @project: 微电视Loki;
+ * tony 2014/7/18;
+ */
+/* 
+    @名称: css-reset
+    @功能: 重设浏览器默认样式
+    综合kissy[Taobao] & alice[Alipay]
+*/
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, button, input, textarea,
+th, td,
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, canvas, video {
+  margin: 0;
+  padding: 0; }
+
+textarea {
+  resize: none; }
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark {
+  display: block; }
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+  font: 12px/1.3 tahoma,arial,"\5b8b\4f53"; }
+
+input, select, textarea {
+  font-size: 100%; }
+
+/* 重置鼠标样式 */
+input[type="button"], input[type="submit"], select, button {
+  cursor: pointer; }
+
+/* for ie6 */
+legend {
+  color: #000; }
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* IE bug fixed: th 不继承 text-align*/
+th {
+  text-align: inherit; }
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0; }
+
+/* IE6&7 解决图片改变尺寸后失真 */
+img {
+  -ms-interpolation-mode: bicubic; }
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+  display: block; }
+
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through; }
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500; }
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+  list-style: none; }
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left; }
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+q:before, q:after {
+  content: ''; }
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+  text-decoration: none; }
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+  text-decoration: underline; }
+
+/* 定义尺寸 */
+.luck-draw-contain {
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  position: relative;
+  z-index: 100;
+  background: url("../../../images/m/luck_draw/the_voice_of_china/luck_draw_contain.jpg") 0 0 no-repeat; }
+
+.luck-draw-title {
+  position: absolute;
+  left: 170px;
+  top: 330px;
+  width: 380px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff; }
+  .luck-draw-title .title-content {
+    font-size: 28px; }
+    .luck-draw-title .title-content .mark {
+      color: #fff000; }
+    .luck-draw-title .title-content em.mark {
+      font-size: 40px;
+      font-style: italic;
+      margin-left: 5px;
+      margin-right: 10px; }
+  .luck-draw-title .title-tip {
+    font-size: 40px; }
+
+.luck-draw-winners {
+  position: absolute;
+  left: 293px;
+  top: 475px;
+  width: 200px;
+  height: 85px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 16px; }
+  .luck-draw-winners li {
+    margin-bottom: 10px; }
+
+.luck-draw-button {
+  position: absolute;
+  left: 160px;
+  top: 562px;
+  width: 344px;
+  height: 98px;
+  overflow: hidden; }
+  .luck-draw-button .button {
+    display: block;
+    width: 344px;
+    height: 98px;
+    overflow: hidden;
+    background-image: url("../../../images/m/luck_draw/the_voice_of_china/luck_draw_button_sprite.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0 none; }
+  .luck-draw-button .button-draw {
+    background-position: 0 0; }
+  .luck-draw-button .button-award {
+    background-position: 0 -108px; }
+  .luck-draw-button .button-over {
+    background-position: 0 -216px; }
+
+.luck-draw-wheel {
+  position: absolute;
+  left: 598px;
+  top: 128px;
+  width: 516px;
+  height: 516px;
+  overflow: hidden; }
+  .luck-draw-wheel .wheel-point {
+    float: left;
+    margin-top: -368px;
+    margin-left: 210px;
+    position: relative;
+    width: 99px;
+    height: 161px;
+    overflow: hidden;
+    background: url("../../../images/m/luck_draw/the_voice_of_china/luck_draw_wheel_point.png") 0 0 repeat; }
+
+.luck-overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  width: 100%;
+  height: 100%;
+  background: url("../../../images/m/luck_draw/the_voice_of_china/luck_overlay.png") 0 0 repeat; }
+
+.luck-dialog {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 205px;
+  left: 430px;
+  z-index: 1000;
+  width: 420px;
+  height: 309px;
+  background: url("../../../images/m/luck_draw/the_voice_of_china/luck_dialog.png") 0 0 no-repeat; }
+  .luck-dialog .dialog-title {
+    font-size: 60px;
+    color: #fff000;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px; }
+  .luck-dialog .dialog-text {
+    font-size: 33px;
+    color: #fff;
+    text-align: center; }
+    .luck-dialog .dialog-text .mark {
+      color: #fff000; }
+  .luck-dialog .dialog-txt-sub {
+    font-size: 20px;
+    color: #fff;
+    text-align: center; }
+    .luck-dialog .dialog-txt-sub .mark {
+      color: #fff000;
+      font-size: 30px;
+      margin-left: 3px;
+      margin-right: 3px; }
+  .luck-dialog .dialog-button {
+    margin-top: 30px;
+    text-align: center; }
+  .luck-dialog .button {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 5px;
+    background-image: url("../../../images/m/luck_draw/the_voice_of_china/luck_dialog_button_sprite.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0 none; }
+  .luck-dialog .button-draw {
+    width: 175px;
+    height: 57px;
+    background-position: 0 -122px; }
+  .luck-dialog .button-award {
+    width: 175px;
+    height: 57px;
+    background-position: 0 -189px; }
+  .luck-dialog .button-ok {
+    width: 175px;
+    height: 57px;
+    background-position: 0 -256px; }
+  .luck-dialog .button-active .button-draw {
+    background-position: -195px -122px; }
+  .luck-dialog .button-active .button-award {
+    background-position: -195px -189px; }
+  .luck-dialog .button-active .button-ok {
+    background-position: -195px -256px; }
+
+.fn-show {
+  visibility: visible;
+  opacity: 1; }

@@ -1,0 +1,786 @@
+/**
+ * @project: 微电视Loki;
+ * tony 2014/7/18;
+ */
+
+// 引入normalize
+@import "_reset.scss";
+// 引入bourbon
+@import "bourbon/_bourbon.scss";
+
+/* 定义尺寸 */
+// 外框
+$lokiWidth: 340px !default;
+$lokiHeight: 720px !default;
+// 外框
+$lokiFeedWidth: $lokiWidth !default;
+$lokiFeedHeight: $lokiHeight !default;
+// 微博
+$weiboWidth: $lokiFeedWidth !default;
+$weiboHeight: 180px !default;
+// 人物、百科、音乐
+$wikiWidth: $lokiFeedWidth !default;
+$wikiHeight: 160px !default;
+// 互动
+$interactionWidth: $lokiFeedWidth !default;
+$interactionHeight: 322px !default;
+// 退出
+$gooutWidth: $lokiFeedWidth !default;
+$gooutHeight: 36px !default;
+
+/* 定义颜色 */
+$hTitleColor: #ffa200 !default;
+$linkColor: #0bf !default;
+$tipColor: #bbb !default;
+$markColor: #ff9c00 !default;
+
+/* 定义公用尺寸及位置 */
+$lokiFeedPLeft: 20px !default;
+$lokiFeedPRight: 60px !default;
+$imgPath: "../../images/m" !default;
+$fontRate: 1.3 !default;
+$fontSize: 20px !default;
+
+// An easy way to truncate text with an ellipsis. Requires the element to be *block* or *inline-block*.
+@mixin text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+// TVMALL HACK
+body{
+    width: $lokiWidth;
+    height: $lokiHeight;
+    overflow: hidden;
+}
+.loki{
+    width: $lokiWidth;
+    height: $lokiHeight;
+    overflow: hidden;
+
+    position: relative;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.loki-feed{
+    width: $lokiFeedWidth;
+    height: $lokiFeedHeight;
+
+    // background: url('#{$imgPath}/loki-feed-bg.png') 0 0 no-repeat;
+    // background-color: rgba(0, 0, 0, .8);
+
+    color: #fff;
+    font-size: 20px;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+// 定义feed 公用 animation
+@include keyframes(feedLeftOut) {
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        left: -$wikiWidth;
+        opacity: 0;
+    }
+}
+@include keyframes(feedRightIn) {
+    0% {
+        left: $wikiWidth;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+.feed-right-in{
+    @include animation(feedRightIn 1.0s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+.feed-left-out{
+    @include animation(feedLeftOut 1.0s ease-in-out);
+    @include animation-fill-mode(forwards);
+}
+.feed-exist{
+    left: 0;
+    opacity: 1;
+}
+
+/* 微电视百科 */
+
+.feed-weibo{
+    width: $weiboWidth;
+    height: $weiboHeight;
+    overflow: hidden;
+    position: relative;
+
+    $weiboPTop: 20px !default;
+
+    // 微博
+    .weibo-item{
+        width: $weiboWidth;
+        height: $weiboHeight;
+        position: absolute;
+        left: $weiboWidth;
+        top: 0;
+
+        $weiboItemPLeft: $lokiFeedPLeft;
+        $weiboItemPRight: $lokiFeedPRight;
+        $weiboItemPTop: $weiboPTop;
+        
+        $weiboAvatarRadius: 21px !default;
+        $weiboAvatarBorder: 1px !default;
+        $weiboHeadHeight: $weiboAvatarRadius;
+        $weiboHeadMTop: 40px;
+        $weiboHeadMBottom: 10px;
+        .weibo-head{
+            // width: $weiboWidth - $weiboItemPLeft - $weiboItemPRight;
+            width: $weiboWidth - $weiboItemPLeft - $weiboItemPRight;
+            height: $weiboHeadHeight;
+            
+            margin-bottom: $weiboHeadMBottom;
+            margin-top: $weiboHeadMTop;
+            padding-left: $weiboItemPLeft;
+            padding-right: $weiboItemPRight;
+
+            @include clearfix;
+        }
+        .weibo-avatar{
+            float: left;
+            width: ($weiboAvatarRadius - $weiboAvatarBorder)*2;
+            height: ($weiboAvatarRadius - $weiboAvatarBorder)*2;
+            overflow: hidden;
+
+            background: url('#{$imgPath}/weibo-avatar-border.png') 50% 50% no-repeat;
+            padding: $weiboAvatarBorder;
+        }
+        .weibo-avatar-img{
+            display: block;
+            width: ($weiboAvatarRadius - $weiboAvatarBorder)*2;
+            height: ($weiboAvatarRadius - $weiboAvatarBorder)*2;
+            overflow: hidden;
+            @include border-radius($weiboAvatarRadius);
+        }
+
+        .weibo-name{
+            float: left;
+            margin: 10px 0 0 10px;
+            // width: $weiboWidth - $weiboItemPLeft - $weiboItemPRight - $weiboAvatarRadius - $weiboAvatarBorder*2 - 10px;
+            width: $weiboWidth - $weiboItemPLeft - $weiboItemPRight - $weiboAvatarRadius*2 - 10px;
+
+            color: $tipColor;
+
+            font-size: 22px;
+            @include text-overflow;
+        }
+        .weibo-cnt{
+            // width: $weiboWidth - $weiboItemPLeft - $weiboItemPRight;
+            // height: $weiboHeight - $weiboItemPTop - $weiboHeadHeight - $weiboHeadMBottom;
+            width: 260px;
+            height: 3 * $fontRate * 20px;
+
+            padding-left: $weiboItemPLeft;
+            padding-right: $weiboItemPRight;
+
+            overflow: hidden;
+
+            @include word-wrap;
+        }
+    }
+
+    .weibo-show{
+        left: 0;
+    }
+    .weibo-hide{
+        left: $weiboWidth;
+    }
+}
+
+.feed-wiki{
+    width: $wikiWidth;
+    height: $wikiHeight;
+    overflow: hidden;
+    position: relative;
+
+    $wikiHeadHeight: 25px !default;
+    $wikiHeadMTop: 12px !default;
+    $wikiHeadMBottom: 8px !default;
+    .wiki-head{
+        float: left;
+        width: $wikiWidth - $lokiFeedPLeft;
+        height: $wikiHeadHeight;
+        background: url('#{$imgPath}/wiki-head.png') 0 0 no-repeat;
+
+        margin-top: $wikiHeadMTop;
+        margin-left: $lokiFeedPLeft;
+        margin-right: -$wikiWidth;
+        position: relative;
+        z-index: 200;
+    }
+    .wiki-wrap{
+        width: $wikiWidth;
+        height: $wikiHeight;
+        overflow: hidden;
+        position: relative;
+        z-index: 100;
+    }
+
+    // 人物信息
+    .wiki-person{
+        width: $wikiWidth;
+        height: $wikiHeight;
+        position: absolute;
+        left: $wikiWidth;
+        top: 0;
+        
+        .person-item-wrap{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+            position: relative;
+        }
+        .person-item-avatar{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 50;
+        }
+        .person-item-avatar-left{
+            float: left;
+            width: $wikiWidth/2;
+            height: $wikiHeight;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+
+            filter: alpha(opacity=80);  
+            -moz-opacity: 0.8;
+            -khtml-opacity: 0.8;
+            opacity: 0.8;
+        }
+        .person-item-avatar-left-mask{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url('#{$imgPath}/wiki-item-mask-left.png') 0 0 no-repeat;
+        }
+        .person-item-avatar-right{
+            float: left;
+            width: $wikiWidth/2;
+            height: $wikiHeight;
+            background-position: -170px 0;
+            background-repeat: no-repeat;
+
+            filter: alpha(opacity=80);  
+            -moz-opacity: 0.8;
+            -khtml-opacity: 0.8;
+            opacity: 0.8;
+        }
+        .person-item-avatar-mask{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+
+            background: url('#{$imgPath}/wiki-item-mask.png') 0 0 repeat-x;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 55;
+        }
+        .person-item-cnt{
+            width: $wikiWidth - $lokiFeedPLeft - $lokiFeedPRight;
+            height: $wikiHeight - ($wikiHeadHeight + $wikiHeadMTop);
+            overflow: hidden;
+
+            padding-left: $lokiFeedPLeft;
+            padding-right: $lokiFeedPRight;
+            padding-top: $wikiHeadHeight + $wikiHeadMTop;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 60;
+        }
+
+        .person-name{
+            font-size: 22px;
+            margin-top: 4px;
+            // margin-bottom: 14px;
+            font-weight: 500;
+            width: 160px;
+            @include text-overflow;
+        }
+        .person-tip{
+            color: $tipColor;
+            width: 160px;
+            @include text-overflow;
+        }
+        .person-description{
+            width: 160px;
+            word-break: break-all;
+            height: 2 * $fontSize * $fontRate;
+            overflow: hidden;
+            // @include text-overflow;
+        }
+    }
+    
+    // 百科信息
+    .wiki-baike{
+        width: $wikiWidth;
+        height: $wikiHeight;
+        position: absolute;
+        left: $wikiWidth;
+        top: 0;
+        
+        .baike-item-wrap{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+            position: relative;
+        }
+        .baike-item-cover{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 50;
+        }
+        .baike-item-cover-left{
+            float: left;
+            width: $wikiWidth/2;
+            height: $wikiHeight;
+            background-position: 0 0;
+            background-repeat: no-repeat;
+
+            filter: alpha(opacity=80);  
+            -moz-opacity: 0.8;
+            -khtml-opacity: 0.8;
+            opacity: 0.8;
+        }
+        .baike-item-cover-left-mask{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url('#{$imgPath}/wiki-item-mask-left.png') 0 0 no-repeat;
+        }
+        .baike-item-cover-right{
+            float: left;
+            width: $wikiWidth/2;
+            height: $wikiHeight;
+            background-position: -170px 0;
+            background-repeat: no-repeat;
+
+            filter: alpha(opacity=80);  
+            -moz-opacity: 0.8;
+            -khtml-opacity: 0.8;
+            opacity: 0.8;
+        }
+        .baike-item-cover-mask{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+
+            background: url('#{$imgPath}/wiki-item-mask.png') 0 0 repeat-x;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 55;
+        }
+        .baike-item-cnt{
+            width: $wikiWidth - $lokiFeedPLeft - $lokiFeedPRight;
+            height: $wikiHeight - ($wikiHeadHeight + $wikiHeadMTop);
+            overflow: hidden;
+
+            padding-left: $lokiFeedPLeft;
+            padding-right: $lokiFeedPRight;
+            padding-top: $wikiHeadHeight + $wikiHeadMTop;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 60;
+        }
+        .baike-title, .baike-title-nocover{
+            font-size: 22px;
+            margin-top: 4px;
+            // margin-bottom: 14px;
+            font-weight: 500;
+            width: 160px;
+            @include text-overflow;
+        }
+        .baike-summary, .baike-summary-nocover{
+            color: $tipColor;
+            width: 160px;
+            @include word-wrap;
+
+            height: 3 * $fontRate * $fontSize;
+            overflow: hidden;
+        }
+        .baike-title-nocover{
+            width: 260px;
+        }
+        .baike-summary-nocover{
+            width: 260px;
+        }
+    }
+
+    /* 音乐信息 */
+    .wiki-music{
+        width: $wikiWidth;
+        height: $wikiHeight;
+        position: absolute;
+        left: $wikiWidth;
+        top: 0;
+        
+        .music-item-wrap{
+            width: $wikiWidth;
+            height: $wikiHeight;
+            overflow: hidden;
+
+            @include clearfix;
+        }
+        
+        $musicItemCntWidth: 110px !default;
+        .music-item-cnt{
+            width: $musicItemCntWidth;
+            height: $wikiHeight - ($wikiHeadHeight + $wikiHeadMTop);
+            overflow: hidden;
+
+            padding-top: $wikiHeadHeight + $wikiHeadMTop;
+            padding-left: $lokiFeedPLeft;
+
+            float: left;
+        }
+        .music-title{
+            font-weight: 500;
+            width: $musicItemCntWidth;
+            margin-top: 4px;
+            @include word-wrap;
+        }
+        .music-tag{
+            color: $tipColor;
+            width: $musicItemCntWidth;
+            @include text-overflow;
+        }
+        .music-singer{
+            color: $tipColor;
+            width: $musicItemCntWidth;
+            @include text-overflow;
+        }
+        $musicItemCoverRadius: 75px;
+        $musicItemCoverBorder: 23px;
+        .music-item-cover{
+            float: left;
+            width: ($musicItemCoverRadius - $musicItemCoverBorder)*2;
+            height: ($musicItemCoverRadius - $musicItemCoverBorder)*2;
+            overflow: hidden;
+
+            padding: $musicItemCoverBorder;
+            background: url('#{$imgPath}/music-cover-boder.png') 50% 50% repeat-x;
+
+            margin-top: 5px;
+        }
+        .music-item-cover-img{
+            display: block;
+            width: ($musicItemCoverRadius - $musicItemCoverBorder)*2;
+            height: ($musicItemCoverRadius - $musicItemCoverBorder)*2;
+            overflow: hidden;
+            @include border-radius($musicItemCoverRadius);
+        }
+        
+    }
+
+    .wiki-show{
+        left: 0;
+    }
+    .wiki-hide{
+        left: $wikiWidth;
+    }
+}
+
+
+
+/* 互动 */
+.feed-interaction{
+    width: $interactionWidth;
+    height: $interactionHeight;
+    overflow: hidden;
+    
+    $ianHeadHeight: 25px !default;
+    $ianHeadMTop: 16px !default;
+    $ianHeadMBottom: 8px !default;
+    .ian-head{
+        width: $interactionWidth - $lokiFeedPLeft;
+        height: $ianHeadHeight;
+        background: url('#{$imgPath}/interaction-head.png') 0 0 no-repeat;
+
+        margin-top: $ianHeadMTop;
+        margin-bottom: $ianHeadMBottom;
+        margin-left: $lokiFeedPLeft;
+    }
+
+    $ianWrapWidth: $interactionWidth;
+    $ianWrapHeight: $interactionHeight - ($ianHeadMTop + $ianHeadHeight + $ianHeadMBottom);
+    .ian-wrap{
+        width: $ianWrapWidth;
+        height: $ianWrapHeight;
+        overflow: hidden;
+        position: relative;
+    }
+    $ianItemPLeft: $lokiFeedPLeft;
+    $ianItemPRight: $lokiFeedPRight;
+    .ian-item{
+        width: $ianWrapWidth;
+        height: $ianWrapHeight;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .ian-title{
+        width: $ianWrapWidth - $ianItemPLeft - $ianItemPRight;
+        padding-left: $ianItemPLeft;
+        padding-right: $ianItemPRight;
+        margin-bottom: 10px;
+        font-weight: 500;
+        @include word-wrap;
+    }
+    $ianMainWrapHeight: floor($ianWrapHeight - $fontRate * 20px);
+    .ian-main-wrap{
+        width: $interactionWidth;
+        height: $ianMainWrapHeight;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    
+    .ian-options{
+        $ianOptionActiveHeight: 34px;
+        $ianOptionActiveOutlineX: 8px;
+        $ianOptionActiveOutlineY: 4px;
+        $ianOptionsWidth: $interactionWidth - ($ianItemPLeft - $ianOptionActiveOutlineX) - $ianItemPRight;
+        $ianOptionsHeight: $ianMainWrapHeight;
+
+        width: $ianOptionsWidth;
+        height: $ianOptionsHeight;
+        padding-left: $ianItemPLeft - $ianOptionActiveOutlineX;
+        padding-right: $ianItemPRight;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        li{
+            width: $ianOptionsWidth - 20px*2;
+            height: $ianOptionActiveHeight;
+            line-height: $ianOptionActiveHeight;
+            overflow: hidden;
+            padding: $ianOptionActiveOutlineY ($ianOptionActiveOutlineX + 20px);
+        }
+        .active{
+            background: url('#{$imgPath}/interaction-options-active.png') 50% 50% no-repeat;
+            color: $linkColor;
+        }
+        em{
+            margin-right: 10px;
+        }
+    }
+    .ian-answer{
+        width: $interactionWidth;
+        height: floor($ianMainWrapHeight - $fontRate * 20px);
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .answer-label{
+        width: $interactionWidth - $ianItemPLeft - $ianItemPRight;
+        margin-left: $ianItemPLeft;
+        margin-right: $ianItemPRight;
+        font-weight: 500;
+    }
+    .answer-title{
+        margin-left: $ianItemPLeft;
+        font-size: 22px;
+        color: $linkColor;
+
+        em{
+            margin-right: 10px;
+        }
+    }
+    $answerWrapHeight: floor($ianMainWrapHeight - $fontRate * 20px - $fontRate * 20px - $fontRate * 24px);
+    .answer-wrap{
+        width: $interactionWidth;
+        height: $answerWrapHeight;
+        overflow: hidden;
+        position: relative;
+    }
+    .answer-status{
+        width: $interactionWidth - $ianItemPLeft - $ianItemPRight;
+        height: $answerWrapHeight - 30px;
+        padding-top: 30px;
+        padding-left: $ianItemPLeft;
+        padding-right: $ianItemPRight;
+        position: absolute;
+        top: 0;
+    }
+    .answer-tip{
+        font-size: 22px;
+    }
+    .answer-result{
+        i{
+            font-style: italic;
+            font-size: 22px;
+            color: $markColor;
+        }
+    }
+
+    // 
+    .ian-none{
+        width: $ianWrapWidth - $ianItemPLeft - $ianItemPRight;
+        padding-left: $ianItemPLeft;
+        padding-right: $ianItemPRight;
+        overflow: hidden;
+        .none-title{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            @include word-wrap;
+        }
+        .none-banner{
+            width: $ianWrapWidth - $ianItemPLeft - $ianItemPRight;
+            height: 140px;
+            overflow: hidden;
+
+            // background: url('#{$imgPath}/interaction-banner.png') 0 0 no-repeat;
+        }
+    }
+
+    .ian-show{
+        left: 0;
+    }
+    .ian-hide{
+        left: $interactionWidth;
+    }
+}
+
+.feed-close{
+    width: $gooutWidth - $lokiFeedPRight;
+    height: $gooutHeight;
+    background: url('#{$imgPath}/loki-feed-close.png') 100% 8px no-repeat;
+}
+
+// 抽奖入口
+.loki-lucky{
+    width: $lokiFeedWidth;
+    height: $lokiFeedHeight;
+
+    position: absolute;
+    left: $lokiFeedWidth;
+    top: 0;
+}
+$luckyContainMLeft: 30px;
+$luckyContainMRight: 70px;
+$luckyContainWidth: $lokiFeedWidth - $luckyContainMLeft - $luckyContainMRight;
+$luckyContainHeight: 320px;
+.lucky-banner{
+    width: $luckyContainWidth;
+    height: $luckyContainHeight;
+    
+    margin-left: $luckyContainMLeft;
+    margin-right: $luckyContainMRight;
+
+    overflow: hidden;
+    position: relative;
+}
+.lucky-banner-mask-top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+
+    width: $luckyContainWidth;
+    height: $luckyContainHeight;
+    background: url('#{$imgPath}/lucky-banner-mask-top.png') 0 0 no-repeat;
+}
+.lucky-banner-mask-bottom{
+    position: absolute;
+    left: 0;
+    left: 0;
+    z-index: 1200;
+
+    width: $luckyContainWidth;
+    height: $luckyContainHeight;
+    background: url('#{$imgPath}/lucky-banner-mask-bottom.png') 0 100% no-repeat;
+}
+.lucky-banner-pic{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: block;
+    width: $luckyContainWidth;
+    height: $luckyContainHeight;
+    overflow: hidden;
+}
+.lucky-tip{
+    width: $luckyContainWidth;
+    
+    margin-left: $luckyContainMLeft;
+    margin-right: $luckyContainMRight;
+
+    font-size: 24px;
+    color: #999999;
+    text-align: center;
+}
+.lucky-title{
+    width: $luckyContainWidth;
+    
+    margin-left: $luckyContainMLeft;
+    margin-right: $luckyContainMRight;
+    margin-bottom: 10px;
+
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+
+    .mark{
+        font-style: italic;
+        color: #ffde00;
+        margin-left: 3px;
+        margin-right: 5px;
+    }
+}
+.lucky-button{
+    display: block;
+
+    width: $luckyContainWidth;
+    height: 70px;
+    
+    margin-left: $luckyContainMLeft;
+    margin-right: $luckyContainMRight;
+
+    background: url('#{$imgPath}/lucky-button.png') 0 0 no-repeat;
+}
+
+
+
+
+
+
+
+
+
+

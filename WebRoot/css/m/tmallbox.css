@@ -1,0 +1,724 @@
+@charset "UTF-8";
+/**
+ * @project: 微电视Loki;
+ * tony 2014/7/18;
+ */
+/* 
+    @名称: css-reset
+    @功能: 重设浏览器默认样式
+    综合kissy[Taobao] & alice[Alipay]
+*/
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, button, input, textarea,
+th, td,
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, canvas, video {
+  margin: 0;
+  padding: 0; }
+
+textarea {
+  resize: none; }
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark {
+  display: block; }
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+  font: 12px/1.3 tahoma,arial,"\5b8b\4f53"; }
+
+input, select, textarea {
+  font-size: 100%; }
+
+/* 重置鼠标样式 */
+input[type="button"], input[type="submit"], select, button {
+  cursor: pointer; }
+
+/* for ie6 */
+legend {
+  color: #000; }
+
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* IE bug fixed: th 不继承 text-align*/
+th {
+  text-align: inherit; }
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0; }
+
+/* IE6&7 解决图片改变尺寸后失真 */
+img {
+  -ms-interpolation-mode: bicubic; }
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+  display: block; }
+
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+  border: 0;
+  font-variant: normal; }
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through; }
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 500; }
+
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+  list-style: none; }
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left; }
+
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+q:before, q:after {
+  content: ''; }
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+  text-decoration: none; }
+
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+  text-decoration: underline; }
+
+/* 定义尺寸 */
+/* 定义颜色 */
+/* 定义公用尺寸及位置 */
+body {
+  width: 340px;
+  height: 720px;
+  overflow: hidden; }
+
+.loki {
+  width: 340px;
+  height: 720px;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8); }
+
+.loki-feed {
+  width: 340px;
+  height: 720px;
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+@-webkit-keyframes feedLeftOut {
+  0% {
+    left: 0;
+    opacity: 1; }
+
+  100% {
+    left: -340px;
+    opacity: 0; } }
+@-moz-keyframes feedLeftOut {
+  0% {
+    left: 0;
+    opacity: 1; }
+
+  100% {
+    left: -340px;
+    opacity: 0; } }
+@keyframes feedLeftOut {
+  0% {
+    left: 0;
+    opacity: 1; }
+
+  100% {
+    left: -340px;
+    opacity: 0; } }
+@-webkit-keyframes feedRightIn {
+  0% {
+    left: 340px;
+    opacity: 0; }
+
+  100% {
+    left: 0;
+    opacity: 1; } }
+@-moz-keyframes feedRightIn {
+  0% {
+    left: 340px;
+    opacity: 0; }
+
+  100% {
+    left: 0;
+    opacity: 1; } }
+@keyframes feedRightIn {
+  0% {
+    left: 340px;
+    opacity: 0; }
+
+  100% {
+    left: 0;
+    opacity: 1; } }
+.feed-right-in {
+  -webkit-animation: feedRightIn 1s ease-in-out;
+  -moz-animation: feedRightIn 1s ease-in-out;
+  animation: feedRightIn 1s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.feed-left-out {
+  -webkit-animation: feedLeftOut 1s ease-in-out;
+  -moz-animation: feedLeftOut 1s ease-in-out;
+  animation: feedLeftOut 1s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.feed-exist {
+  left: 0;
+  opacity: 1; }
+
+/* 微电视百科 */
+.feed-weibo {
+  width: 340px;
+  height: 180px;
+  overflow: hidden;
+  position: relative; }
+  .feed-weibo .weibo-item {
+    width: 340px;
+    height: 180px;
+    position: absolute;
+    left: 340px;
+    top: 0; }
+    .feed-weibo .weibo-item .weibo-head {
+      width: 260px;
+      height: 21px;
+      margin-bottom: 10px;
+      margin-top: 40px;
+      padding-left: 20px;
+      padding-right: 60px; }
+      .feed-weibo .weibo-item .weibo-head:after {
+        content: "";
+        display: table;
+        clear: both; }
+    .feed-weibo .weibo-item .weibo-avatar {
+      float: left;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      background: url("../../images/m/weibo-avatar-border.png") 50% 50% no-repeat;
+      padding: 1px; }
+    .feed-weibo .weibo-item .weibo-avatar-img {
+      display: block;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 21px; }
+    .feed-weibo .weibo-item .weibo-name {
+      float: left;
+      margin: 10px 0 0 10px;
+      width: 208px;
+      color: #bbbbbb;
+      font-size: 22px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis; }
+    .feed-weibo .weibo-item .weibo-cnt {
+      width: 260px;
+      height: 78px;
+      padding-left: 20px;
+      padding-right: 60px;
+      overflow: hidden;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all; }
+  .feed-weibo .weibo-show {
+    left: 0; }
+  .feed-weibo .weibo-hide {
+    left: 340px; }
+
+.feed-wiki {
+  width: 340px;
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+  /* 音乐信息 */ }
+  .feed-wiki .wiki-head {
+    float: left;
+    width: 320px;
+    height: 25px;
+    background: url("../../images/m/wiki-head.png") 0 0 no-repeat;
+    margin-top: 12px;
+    margin-left: 20px;
+    margin-right: -340px;
+    position: relative;
+    z-index: 200; }
+  .feed-wiki .wiki-wrap {
+    width: 340px;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    z-index: 100; }
+  .feed-wiki .wiki-person {
+    width: 340px;
+    height: 160px;
+    position: absolute;
+    left: 340px;
+    top: 0; }
+    .feed-wiki .wiki-person .person-item-wrap {
+      width: 340px;
+      height: 160px;
+      overflow: hidden;
+      position: relative; }
+    .feed-wiki .wiki-person .person-item-avatar {
+      width: 340px;
+      height: 160px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 50; }
+    .feed-wiki .wiki-person .person-item-avatar-left {
+      float: left;
+      width: 170px;
+      height: 160px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8; }
+    .feed-wiki .wiki-person .person-item-avatar-left-mask {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("../../images/m/wiki-item-mask-left.png") 0 0 no-repeat; }
+    .feed-wiki .wiki-person .person-item-avatar-right {
+      float: left;
+      width: 170px;
+      height: 160px;
+      background-position: -170px 0;
+      background-repeat: no-repeat;
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8; }
+    .feed-wiki .wiki-person .person-item-avatar-mask {
+      width: 340px;
+      height: 160px;
+      overflow: hidden;
+      background: url("../../images/m/wiki-item-mask.png") 0 0 repeat-x;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 55; }
+    .feed-wiki .wiki-person .person-item-cnt {
+      width: 260px;
+      height: 123px;
+      overflow: hidden;
+      padding-left: 20px;
+      padding-right: 60px;
+      padding-top: 37px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 60; }
+    .feed-wiki .wiki-person .person-name {
+      font-size: 22px;
+      margin-top: 4px;
+      font-weight: 500;
+      width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis; }
+    .feed-wiki .wiki-person .person-tip {
+      color: #bbbbbb;
+      width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis; }
+    .feed-wiki .wiki-person .person-description {
+      width: 160px;
+      word-break: break-all;
+      height: 52px;
+      overflow: hidden; }
+  .feed-wiki .wiki-baike {
+    width: 340px;
+    height: 160px;
+    position: absolute;
+    left: 340px;
+    top: 0; }
+    .feed-wiki .wiki-baike .baike-item-wrap {
+      width: 340px;
+      height: 160px;
+      overflow: hidden;
+      position: relative; }
+    .feed-wiki .wiki-baike .baike-item-cover {
+      width: 340px;
+      height: 160px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 50; }
+    .feed-wiki .wiki-baike .baike-item-cover-left {
+      float: left;
+      width: 170px;
+      height: 160px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8; }
+    .feed-wiki .wiki-baike .baike-item-cover-left-mask {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url("../../images/m/wiki-item-mask-left.png") 0 0 no-repeat; }
+    .feed-wiki .wiki-baike .baike-item-cover-right {
+      float: left;
+      width: 170px;
+      height: 160px;
+      background-position: -170px 0;
+      background-repeat: no-repeat;
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8; }
+    .feed-wiki .wiki-baike .baike-item-cover-mask {
+      width: 340px;
+      height: 160px;
+      overflow: hidden;
+      background: url("../../images/m/wiki-item-mask.png") 0 0 repeat-x;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 55; }
+    .feed-wiki .wiki-baike .baike-item-cnt {
+      width: 260px;
+      height: 123px;
+      overflow: hidden;
+      padding-left: 20px;
+      padding-right: 60px;
+      padding-top: 37px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 60; }
+    .feed-wiki .wiki-baike .baike-title, .feed-wiki .wiki-baike .baike-title-nocover {
+      font-size: 22px;
+      margin-top: 4px;
+      font-weight: 500;
+      width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis; }
+    .feed-wiki .wiki-baike .baike-summary, .feed-wiki .wiki-baike .baike-summary-nocover {
+      color: #bbbbbb;
+      width: 160px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all;
+      height: 78px;
+      overflow: hidden; }
+    .feed-wiki .wiki-baike .baike-title-nocover {
+      width: 260px; }
+    .feed-wiki .wiki-baike .baike-summary-nocover {
+      width: 260px; }
+  .feed-wiki .wiki-music {
+    width: 340px;
+    height: 160px;
+    position: absolute;
+    left: 340px;
+    top: 0; }
+    .feed-wiki .wiki-music .music-item-wrap {
+      width: 340px;
+      height: 160px;
+      overflow: hidden; }
+      .feed-wiki .wiki-music .music-item-wrap:after {
+        content: "";
+        display: table;
+        clear: both; }
+    .feed-wiki .wiki-music .music-item-cnt {
+      width: 110px;
+      height: 123px;
+      overflow: hidden;
+      padding-top: 37px;
+      padding-left: 20px;
+      float: left; }
+    .feed-wiki .wiki-music .music-title {
+      font-weight: 500;
+      width: 110px;
+      margin-top: 4px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all; }
+    .feed-wiki .wiki-music .music-tag {
+      color: #bbbbbb;
+      width: 110px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis; }
+    .feed-wiki .wiki-music .music-singer {
+      color: #bbbbbb;
+      width: 110px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis; }
+    .feed-wiki .wiki-music .music-item-cover {
+      float: left;
+      width: 104px;
+      height: 104px;
+      overflow: hidden;
+      padding: 23px;
+      background: url("../../images/m/music-cover-boder.png") 50% 50% repeat-x;
+      margin-top: 5px; }
+    .feed-wiki .wiki-music .music-item-cover-img {
+      display: block;
+      width: 104px;
+      height: 104px;
+      overflow: hidden;
+      border-radius: 75px; }
+  .feed-wiki .wiki-show {
+    left: 0; }
+  .feed-wiki .wiki-hide {
+    left: 340px; }
+
+/* 互动 */
+.feed-interaction {
+  width: 340px;
+  height: 322px;
+  overflow: hidden; }
+  .feed-interaction .ian-head {
+    width: 320px;
+    height: 25px;
+    background: url("../../images/m/interaction-head.png") 0 0 no-repeat;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    margin-left: 20px; }
+  .feed-interaction .ian-wrap {
+    width: 340px;
+    height: 273px;
+    overflow: hidden;
+    position: relative; }
+  .feed-interaction .ian-item {
+    width: 340px;
+    height: 273px;
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .feed-interaction .ian-title {
+    width: 260px;
+    padding-left: 20px;
+    padding-right: 60px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all; }
+  .feed-interaction .ian-main-wrap {
+    width: 340px;
+    height: 247px;
+    overflow: hidden;
+    position: relative; }
+  .feed-interaction .ian-options {
+    width: 268px;
+    height: 247px;
+    padding-left: 12px;
+    padding-right: 60px;
+    position: absolute;
+    left: 0;
+    top: 0; }
+    .feed-interaction .ian-options li {
+      width: 228px;
+      height: 34px;
+      line-height: 34px;
+      overflow: hidden;
+      padding: 4px 28px; }
+    .feed-interaction .ian-options .active {
+      background: url("../../images/m/interaction-options-active.png") 50% 50% no-repeat;
+      color: #00bbff; }
+    .feed-interaction .ian-options em {
+      margin-right: 10px; }
+  .feed-interaction .ian-answer {
+    width: 340px;
+    height: 221px;
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .feed-interaction .answer-label {
+    width: 260px;
+    margin-left: 20px;
+    margin-right: 60px;
+    font-weight: 500; }
+  .feed-interaction .answer-title {
+    margin-left: 20px;
+    font-size: 22px;
+    color: #00bbff; }
+    .feed-interaction .answer-title em {
+      margin-right: 10px; }
+  .feed-interaction .answer-wrap {
+    width: 340px;
+    height: 163px;
+    overflow: hidden;
+    position: relative; }
+  .feed-interaction .answer-status {
+    width: 260px;
+    height: 133px;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 60px;
+    position: absolute;
+    top: 0; }
+  .feed-interaction .answer-tip {
+    font-size: 22px; }
+  .feed-interaction .answer-result i {
+    font-style: italic;
+    font-size: 22px;
+    color: #ff9c00; }
+  .feed-interaction .ian-none {
+    width: 260px;
+    padding-left: 20px;
+    padding-right: 60px;
+    overflow: hidden; }
+    .feed-interaction .ian-none .none-title {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all; }
+    .feed-interaction .ian-none .none-banner {
+      width: 260px;
+      height: 140px;
+      overflow: hidden; }
+  .feed-interaction .ian-show {
+    left: 0; }
+  .feed-interaction .ian-hide {
+    left: 340px; }
+
+.feed-close {
+  width: 280px;
+  height: 36px;
+  background: url("../../images/m/loki-feed-close.png") 100% 8px no-repeat; }
+
+.loki-lucky {
+  width: 340px;
+  height: 720px;
+  position: absolute;
+  left: 340px;
+  top: 0; }
+
+.lucky-banner {
+  width: 240px;
+  height: 320px;
+  margin-left: 30px;
+  margin-right: 70px;
+  overflow: hidden;
+  position: relative; }
+
+.lucky-banner-mask-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: 240px;
+  height: 320px;
+  background: url("../../images/m/lucky-banner-mask-top.png") 0 0 no-repeat; }
+
+.lucky-banner-mask-bottom {
+  position: absolute;
+  left: 0;
+  left: 0;
+  z-index: 1200;
+  width: 240px;
+  height: 320px;
+  background: url("../../images/m/lucky-banner-mask-bottom.png") 0 100% no-repeat; }
+
+.lucky-banner-pic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  width: 240px;
+  height: 320px;
+  overflow: hidden; }
+
+.lucky-tip {
+  width: 240px;
+  margin-left: 30px;
+  margin-right: 70px;
+  font-size: 24px;
+  color: #999999;
+  text-align: center; }
+
+.lucky-title {
+  width: 240px;
+  margin-left: 30px;
+  margin-right: 70px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: #fff;
+  text-align: center; }
+  .lucky-title .mark {
+    font-style: italic;
+    color: #ffde00;
+    margin-left: 3px;
+    margin-right: 5px; }
+
+.lucky-button {
+  display: block;
+  width: 240px;
+  height: 70px;
+  margin-left: 30px;
+  margin-right: 70px;
+  background: url("../../images/m/lucky-button.png") 0 0 no-repeat; }

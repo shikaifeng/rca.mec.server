@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+/*列表表格*/
+
+.borderTable {
+    border: 1px #d7d7d7 solid;
+    border-bottom: none;
+    border-right: none;
+    background: #fff;
+}
+
+.borderTable th {
+    height: 40px;
+    line-height: 40px;
+    border-right: 1px #d7d7d7 solid;
+    border-bottom: 1px #d7d7d7 solid;
+    background: -moz-linear-gradient(#ecf1f7, #e4e8eb) repeat 0 0;
+    background: -webkit-linear-gradient(#ecf1f7, #e4e8eb) repeat 0 0;
+    background: linear-gradient(#ecf1f7, #e4e8eb) repeat 0 0;
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#ecf1f7', endColorStr='#e4e8eb', gradientType='0');
+}
+
+.borderTable td {
+    border-right: 1px #d7d7d7 solid;
+    border-bottom: 1px #d7d7d7 solid;
+    height: 25px;
+    padding: 5px 0px;
+    padding-right: 3px;
+    line-height: 20px;
+    padding-left: 3px;
+    text-align:center;
+
+}
+
+.operate a { }
+
+.code a, .blue { color: #014fc4; }
+
+.code a:hover, .blue:hover { /*color:#46a303;*/ text-decoration: underline; }
+
+.unstatus { color: #666; }
+
+.status, .upload, .red { color: #d60101; }
+
+.borderTable tr:nth-child(2n+1) td { background: #f6f9fc; }
+
+/*搜索表格*/
+
+
+
+.searchTable {
+    margin-top: 10px;
+    border: 1px #d7d7d7 solid;
+    background: #f6f9fb;
+}
+
+.searchTable td {
+    padding-left: 5px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.searchTable td span { padding: 0px 5px; }
+
+/*填写表格*/
+
+
+
+.editTable td {
+    border-right: 1px #d7d7d7 solid;
+    text-indent: 4px;
+}
+
+.role table td {
+    line-height: 40px;
+    text-indent: 5px;
+}
+
+.roleTable {
+    margin: 0px auto;
+    border: 1px #d7d7d7 solid;
+    border-bottom: none;
+    border-right: none;
+    background: #fff;
+}
+
+.roleTable td {
+    border-right: 1px #d7d7d7 solid;
+    border-bottom: 1px #d7d7d7 solid;
+    height: 25px;
+    padding: 5px 0px;
+    padding-right: 3px;
+    line-height: 20px;
+    padding-left: 3px;
+}

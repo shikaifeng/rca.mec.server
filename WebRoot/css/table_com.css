@@ -1,0 +1,198 @@
+@charset "utf-8";
+/* CSS Document */
+#tab_search
+{
+    display:inline;
+    width:809px;
+    min-height:30px;
+    height:auto !important;
+    height:30px;
+    overflow:visible;
+    float:left;
+    margin:8px 0 10px 20px;
+    padding:5px 0;	
+    background:#ebebeb;
+    border:#dbdbdb 1px solid;
+}
+#tab_search .tab_s_tit
+{
+    padding-left:5px;
+    font-weight:bold;
+}
+#tab_search ul
+{
+    width:610px;
+    padding:5px 0;
+    float:left;
+}
+#tab_search ul li
+{
+    float:left;
+    height:20px;
+    line-height:20px;
+    margin:3px 0 3px 10px;
+    font-size:12px;
+    color:#282828;
+}
+#tab_search ul span
+{
+    height:20px;
+    line-height:20px;
+    font-size:12px;
+    color:#282828;
+}
+#tab_search ul li input
+{
+    float:left;
+}
+#tab_search ul li .input01 ,#tab_search ul li select
+{
+    float:left;
+    border:#a6a6a6 1px solid;
+    padding:2px;
+    font-size:12px;
+    color:#999999;
+}
+#tab_search ul li label
+{
+    float:left;
+}
+#tab_search ul li input.checkbox
+{
+    padding:5px 0;
+}
+#tab_search .tab_but
+{
+    float:right;
+}
+#tab_search .tab_but{
+    margin-right:10px;
+}
+
+#tab_search .tab_but button
+{
+    border:none;
+    width:62px;
+    height:30px;
+    background:url(../images/btn_whlist.jpg);
+    color:#3c3c3c;
+    cursor:pointer;
+}
+#tab_cz
+{
+    display:inline;
+    width:809px;
+    height:25px;
+    float:left;
+    margin:2px 0 0 20px;
+    padding:5px 0px;	
+    /*	background:#fcf9f8;
+    border:#dbdbdb 1px solid;*/
+}
+#tab_cz .tab_but
+{
+    float:left;
+}
+#tab_cz .tab_but button
+{
+    border:none;
+    width:60px;
+    height:23px;
+    background:url(../images/admin_btn.jpg);
+    cursor:pointer;
+}
+
+
+
+
+.cont_table
+{
+    width:805px;
+    float:left;
+    padding:0 20px;
+
+}
+.cont_table02
+{
+    width:800px;
+    float:left;
+    margin:8px 0 12px 0;
+}
+table.tabcom {
+    width:100%;
+    float:left;
+}
+table.tabcom th{
+    border:1px solid #ccc;
+    vertical-align: top;
+}
+
+table.tabcom  th{
+    background:url(../images/table_th.jpg) left top repeat-x;
+    font-weight:bold;
+    color:#333;
+    border-bottom:none;
+    padding:10px 0 8px 3px;
+    text-align:center;
+}
+
+table.tabcom td{
+    text-align:center;
+    padding:10px 0 3px;
+    border:1px solid #ccc;
+}
+
+table.tabcom td{
+    padding:9px 0 4px;
+    color:#3c3c3c;
+}
+
+table.tabcom td.td01{
+    padding-top:5px;
+}
+
+
+
+.tabcom .td01 img
+{
+
+}
+.tabcom td a
+{
+    color:#C00;
+}
+
+.tabcom td a:hover
+{
+    text-decoration:underline;
+}
+
+.tabcom .hovcolor td
+{
+    background:#fbf5f5;
+}
+
+.tabcom .onmuose01  td
+{
+    background:#e7e7e7;
+}
+
+.tabcom .onmuose02  td
+{
+    background:#e7e7e7;
+}
+
+
+
+/*弹出框*/
+.tab_cz_box
+{
+    width:100%;
+    margin:0;
+    padding:0;	
+}
+.cont_table_box
+{
+    width:100%;
+    padding:0;
+}
